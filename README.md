@@ -4,7 +4,9 @@
 
 Every prompt stands on its own: pick your situation, copy the prompt, fill in your own fields, and paste it into any chat or agent.
 
-**Open the map:** `index.html` is a single page. It works with a double-click and offline (except for the fonts).
+**[Open the map →](https://henryfonda12.github.io/AI-Prompt-Map/)**
+
+Or download `index.html`: it's a single page that works with a double-click and offline (except for the fonts).
 
 ## How to pick a prompt
 
