@@ -42,6 +42,10 @@ Reading the map isn't the same as practicing it. Give the map file to any AI cha
 
 Found a prompt that misfires, or a situation that's missing? [Open an issue](https://github.com/henryfonda12/AI-Prompt-Map/issues).
 
+## License
+
+[CC0](LICENSE): public domain. Use, change and share the prompts and the code however you like; no credit needed.
+
 ## For maintainers
 
 | Path | What it is |
