@@ -30,6 +30,10 @@ Or download `index.html`: it's a single page that works with a double-click and 
 
 Fields like `[MY HYPOTHESIS]` are yours to fill in before you send. That's the whole point. The Copy button copies the prompt and reminds you which fields are yours.
 
+## Learn it with an AI coach
+
+Reading the map isn't the same as practicing it. Download the repo, give `source/ai-prompt-map.md` to any AI chat or agent, and paste the prompt from [COACH.md](COACH.md). The coach asks one question about your work, builds an example from it, and walks you through all 69 prompts, one at a time.
+
 ## What's inside
 
 | Path | What it is |
