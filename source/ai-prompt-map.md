@@ -1,8 +1,8 @@
 # AI Prompt Map: ambitious work and critical thinking when AI does the work
 
-A library of ready-to-use multi-step prompts, organized by topic. Every prompt stands on its own: copy the whole block and paste it into any chat or agent.
+A library of ready-to-use multi-step prompts, organized by situation. Every prompt stands on its own: copy the whole prompt and paste it into any chat or agent.
 
-**Why this exists.** The goal isn't to use AI less. Blocks 0–16 help you keep thinking when it's tempting to hand everything to an agent. Blocks 17–20 are about asking AI for more: higher, deeper, wider. Blocks 21–22 are about using fresh eyes and cheap execution when you don't have the status to push things through. Put together: notice, ask for more, show with a prototype, and verify harder.
+**Why this exists.** The goal isn't to use AI less. Blocks 0–16 help you keep thinking when it's tempting to hand everything to an agent. Blocks 17–19 are about asking AI for more: higher, deeper, wider. Block 20 is the adversarial check that keeps that ambition honest. Blocks 21–22 are about using fresh eyes and cheap execution when you don't have the seniority to push things through. Put together: notice, ask for more, show with a prototype, and verify harder.
 - You have to build critical thinking into your day on purpose, because it won't switch on by itself. Working with agents feels good, and that's exactly why your guard drops without you noticing.
 - The better the models get, the more dangerous this becomes. Obvious mistakes get rarer, answers are smooth and mostly right, and a second look starts to feel unnecessary. That's the trap.
 - Quizzes, interviews and evidence only happen if you set them up yourself. That's what the prompts below are for.
@@ -15,15 +15,15 @@ A library of ready-to-use multi-step prompts, organized by topic. Every prompt s
 
 ## How to use
 
-- **Placeholders.** Any `[PLACEHOLDER]` can be replaced with “see above in this chat” or “I don't know”. Don't skip the fields where you do the thinking: `[MY HYPOTHESIS]`, `[THESIS]` (12.1), `[MY POSITION]` (11.1), `[MY SUMMARY]` (10.3), `[MY EXPLANATION]` (5.3), lines picked at random `[FILE:LINE]` (8.2), `[MY UNVERIFIED THING]` (15.1), `[ACCEPTANCE BAR]` (18.2), `[BELIEF]` (18.3), `[MY NOTES]` (21.1), `[IDEA]` and `[GOAL]` (22.1). Fill them in before you send, even with a bad guess. This is one of the core techniques here.
+- **Placeholders.** Any `[PLACEHOLDER]` can be replaced with “see above in this chat” or “I don't know”. Don't skip the fields where you do the thinking: `[MY HYPOTHESIS]`, `[THESIS]` (12.1), `[MY POSITION]` (11.1), `[MY SUMMARY]` (10.3), `[MY EXPLANATION]` (5.3), lines picked at random `[FILE:LINE]` (8.2), `[MY UNVERIFIED THING]` (15.1), `[ACCEPTANCE BAR]` (18.2), `[BELIEF]` (18.3), `[MY NOTES]` (21.1), `[IDEA]` (21.2, 22.1) and `[GOAL]` (12.1, 22.1, 22.2). Fill them in before you send, even with a bad guess. This is one of the core techniques here.
 - **Environment labels** sit under each prompt's title:
   - `[ANY CHAT]`: works anywhere, in a new chat or the current one.
   - `[SAME CHAT]`: paste into the chat where the work happened. The model needs the history.
   - `[NEW CHAT / OTHER MODEL]`: needs fresh eyes with no history: a new chat, a different model, or a subagent.
   - `[AGENT WITH TOOLS]`: needs to run commands or access files. It still works without tools, but the checks will come back to you as a list of commands.
 - **Phases:** BEFORE (before you hand off the task) / DURING (the AI has produced something) / AFTER (the AI says it's done) / ONGOING (habits).
-- **“Short”** is a 2–3 line version of a long prompt for when you don't have time for the full one.
-- **The HONESTY line** is identical in every prompt about checks, command output and sources. Don't delete it: without it, a model can “show” you output from something that never ran.
+- **Short** is a 2–3 line version of a long prompt for when you don't have time for the full one.
+- **The HONESTY line** is identical in every full prompt about checks, command output and sources (one-liners and Short versions carry a one-sentence form). Don't delete it: without it, a model can “show” you output from something that never ran.
 - **Combine them.** Not sure what to pick? Use [2.2](#2-universal-multi-prompt) at the start and [15.1](#15-finishing-any-task) at the end. No time even for that? Use the [one-liners](#0-one-liners).
 
 ## Contents
@@ -46,10 +46,10 @@ A library of ready-to-use multi-step prompts, organized by topic. Every prompt s
 - [14. Long sessions and handing off context](#14-long-sessions-and-handing-off-context)
 - [15. Finishing any task](#15-finishing-any-task)
 - [16. Calibrating your skills](#16-calibrating-your-skills)
-- [17. Ambition altitude](#17-ambition-altitude)
-- [18. Ambition depth](#18-ambition-depth)
-- [19. Ambition range](#19-ambition-range)
-- [20. Red team adversarial agents](#20-red-team-adversarial-agents)
+- [17. Aiming higher](#17-aiming-higher)
+- [18. Going deeper](#18-going-deeper)
+- [19. Going wider](#19-going-wider)
+- [20. Red teaming with adversarial agents](#20-red-teaming-with-adversarial-agents)
 - [21. Fresh eyes](#21-fresh-eyes)
 - [22. Prototype instead of permission](#22-prototype-instead-of-permission)
 - [The 30-second checklist](#the-30-second-checklist)
@@ -62,12 +62,12 @@ A library of ready-to-use multi-step prompts, organized by topic. Every prompt s
 | Situation | Prompt |
 |---|---|
 | A second to ask something after the AI answers | [0.1–0.14](#0-one-liners) |
-| Setting up CLAUDE.md, Custom Instructions or a Project | [1.1](#1-standing-instructions) |
+| Setting up CLAUDE.md, AGENTS.md, custom instructions or a project | [1.1](#1-standing-instructions) |
 | A non-trivial task and no time to pick | [2.2](#2-universal-multi-prompt) to start, [2.1](#2-universal-multi-prompt) for the full cycle |
 | Can I hand off the whole task? | [3.1](#3-delegate-or-not) |
 | Something small where a mistake costs nothing | [3.2](#3-delegate-or-not) |
 | I'm not fully sure what I want | [4.1](#4-framing-the-task-and-the-brief) |
-| Two rounds of edits and it's still not right | [4.3](#4-framing-the-task-and-the-brief) |
+| Two rounds of edits and it's still not right | [4.3](#4-framing-the-task-and-the-brief), then [4.2](#4-framing-the-task-and-the-brief) |
 | Unfamiliar territory, no reference points | [5.1](#5-a-new-unfamiliar-task) |
 | Choosing an architecture or approach | [6.1](#6-architecture-and-design), then [6.2](#6-architecture-and-design) in a new chat |
 | An agent is writing code | [9.2](#9-verification), then [7.1](#7-writing-code-and-debugging), then [7.2](#7-writing-code-and-debugging) in a new chat |
@@ -84,25 +84,25 @@ A library of ready-to-use multi-step prompts, organized by topic. Every prompt s
 | Running out of context, moving to a new chat | [14.2](#14-long-sessions-and-handing-off-context) |
 | Closing a task, merging, shipping | [15.1](#15-finishing-any-task) |
 | Once a week or once a month | [16.1](#16-calibrating-your-skills), [16.2](#16-calibrating-your-skills) |
-| I'm doing a “task”, but what I need is the outcome behind it | [17.1](#17-ambition-altitude) |
-| I keep giving the agent the same thing over and over | [17.2](#17-ambition-altitude) |
-| We run a process out of habit and I want it better | [17.3](#17-ambition-altitude) |
-| It needs to be genuinely good, not just a lot | [18.1](#18-ambition-depth), then [18.2](#18-ambition-depth) |
-| Decisions rest on a belief nobody has tested | [18.3](#18-ambition-depth) |
-| I want to find what we don't know in the data | [18.4](#18-ambition-depth) |
-| A solution is stuck inside one field | [19.1](#19-ambition-range), [19.2](#19-ambition-range) |
-| High stakes, I want someone to try to break the code | [20.1](#20-red-team-adversarial-agents) |
-| A document or decision has to survive a hostile review | [20.2](#20-red-team-adversarial-agents) |
-| A big task and I want a build–break–judge loop | [20.3](#20-red-team-adversarial-agents) |
+| I'm doing a “task”, but what I need is the outcome behind it | [17.1](#17-aiming-higher) |
+| I keep giving the agent the same thing over and over | [17.2](#17-aiming-higher) |
+| We run a process out of habit and I want it better | [17.3](#17-aiming-higher) |
+| It needs to be genuinely good, not just a lot | [18.1](#18-going-deeper), then [18.2](#18-going-deeper) |
+| Decisions rest on a belief nobody has tested | [18.3](#18-going-deeper) |
+| I want to find what we don't know in the data | [18.4](#18-going-deeper) |
+| A solution is stuck inside one field | [19.1](#19-going-wider), [19.2](#19-going-wider) |
+| High stakes, I want someone to try to break the code | [20.1](#20-red-teaming-with-adversarial-agents) |
+| A document or decision has to survive a hostile review | [20.2](#20-red-teaming-with-adversarial-agents) |
+| A big task and I want a build–break–judge loop | [20.3](#20-red-teaming-with-adversarial-agents) |
 | I'm new and a lot of things look odd | [21.1](#21-fresh-eyes) |
 | I hear “that's impossible” or “we already tried” | [21.2](#21-fresh-eyes) |
-| I have an idea but not the status to push it | [22.1](#22-prototype-instead-of-permission), then [22.2](#22-prototype-instead-of-permission) |
+| I have an idea but not the clout to push it | [22.1](#22-prototype-instead-of-permission), then [22.2](#22-prototype-instead-of-permission) |
 
 ---
 
 ## 0. One-liners
 
-**When to use:** the AI just answered and you don't have time for a big prompt. All one-liners are for the DURING or AFTER phase. Unless noted otherwise, paste them into `[SAME CHAT]`.
+**When to use:** you don't have time for a big prompt. Unless noted otherwise, one-liners are for the DURING or AFTER phase (the AI just answered) and go into the same chat (`[SAME CHAT]`); 0.11 and 0.12 come before the task.
 
 **0.1** What decisions the model made for you
 ```text
@@ -124,7 +124,7 @@ What would have to be true for this result to be wrong? How can I check that che
 What did I miss? Name 2–3 things we didn't account for: requirements, edge cases, side effects, people this affects.
 ```
 
-**0.5** Commands and output (I'll check against the log) `[SAME CHAT]`, better `[AGENT WITH TOOLS]`
+**0.5** Commands and output (I'll check against the log). `[SAME CHAT]`, ideally `[AGENT WITH TOOLS]`
 ```text
 Show me the exact commands you ran and their raw output, not a summary. HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”. For each command, tell me where I can find its real output myself (tool log, terminal, CI run) so I can compare.
 ```
@@ -139,7 +139,7 @@ What exactly did this green check prove, and what didn't it? Could it have passe
 Before you continue, interview me about what you don't understand in this task. Ask 1–3 questions at a time.
 ```
 
-**0.8** The opposite position. Better `[NEW CHAT / OTHER MODEL]`
+**0.8** The opposite position. `[SAME CHAT]`, ideally `[NEW CHAT / OTHER MODEL]`
 ```text
 Argue the opposite position as strongly as you can. Don't look for a compromise and don't give a verdict.
 ```
@@ -182,7 +182,7 @@ Break this “impossible” (or “we already tried”) into separate reasons. W
 
 **Keep in mind:**
 - Quizzes, evidence and the list of decisions only appear if you've set them up in advance. By default nothing triggers them.
-- When something falls short of your bar, add a rule here, to a hook or to a test. Then it fires for everyone, automatically, and your taste keeps accumulating.
+- When something falls short of your bar, add a rule here, to a hook or to a test. Then it fires for everyone, automatically, and your standards keep compounding.
 
 ### 1.1 Baseline rules for any assistant
 `[ANY CHAT]` (standing setup) · ONGOING
@@ -196,7 +196,7 @@ Rules for working with me (always in effect):
 5. At the end of a task, ask yourself “what did I miss?” and add what you find.
 6. If you changed code, finish by asking me 3 questions about specific places you changed. Don't show the answers until I've replied.
 7. Don't make high-stakes decisions for me (what to build, what affects users, whether it's safe to ship): give me options and arguments.
-8. For agents with tools: after any significant change, run a self-check (tests/run it) and a review by a subagent with none of our history; pass its findings to me unfiltered.
+8. For agents with tools: after any significant change, run a self-check (tests or an actual run) and a review by a subagent with none of our history; pass its findings to me unfiltered.
 ```
 
 ---
@@ -209,7 +209,7 @@ Rules for working with me (always in effect):
 - The AI's answer is a hypothesis, not your conclusion. The moment it becomes your input without being checked, that's deferral, not offloading.
 - Write your hypothesis down before you ask. After a smooth answer, it's hard to imagine an alternative.
 - Evidence first, summary second. A green check proves one property, not everything.
-- **You look at the real output YOURSELF: in the tool log, the terminal or CI. Output the model retyped into the chat doesn't count as evidence.**
+- **Look at the real output YOURSELF, in the tool log, the terminal or CI. Output the model retyped into the chat doesn't count as evidence.**
 - The ownership test: if you can't explain the result even with the AI's help, you don't own it. Understanding can be rebuilt on demand: [7.3](#7-writing-code-and-debugging).
 
 ### 2.1 Full cycle
@@ -246,7 +246,7 @@ Task: [TASK]
 My guess at the answer: [MY HYPOTHESIS]
 HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”.
 
-Do the task. Then, in order: 1) evidence; 2) decisions and assumptions you made yourself; 3) what was NOT checked; 4) how my answer differs from yours; 5) a summary of up to 3 lines; 6) one question to test my understanding: don't show the answer, stop.
+Do the task. Then, in order: 1) evidence; 2) decisions and assumptions you made yourself; 3) what was NOT checked; 4) how my answer differs from yours; 5) a summary of up to 3 lines; 6) one question to test my understanding. Don't show the answer; stop there.
 ```
 
 ---
@@ -256,7 +256,7 @@ Do the task. Then, in order: 1) evidence; 2) decisions and assumptions you made 
 **When to use:** BEFORE a task, when you're not sure whether you can hand all of it to AI.
 
 **Keep in mind:**
-- Where mistakes are cheap, hand it off completely: picking one of three hotels, say. Keep the reasoning for yourself where other people will deal with the fallout: investments, career advice for your kids, and at work: what to build, which changes affect users, whether it's safe to ship.
+- Where mistakes are cheap, hand it off completely (picking one of three hotels, say). Keep the reasoning for yourself where other people will deal with the fallout: investments, career advice for your kids and, at work, what to build, which changes affect users, whether it's safe to ship.
 - You can and should hand error detection to agents. The decision and the sign-off stay with you: you can delegate the work and most of the audit, but not the responsibility.
 - How much to trust an agent on a given task is also your call. Model failure modes keep changing, so calibrating trust takes review.
 - Decide up front whether you want help thinking or someone to think for you. Either is fine as long as the choice is deliberate.
@@ -290,7 +290,7 @@ At the end, one line: the main assumption you made, and one thing I should look 
 
 ## 4. Framing the task and the brief
 
-**When to use:** BEFORE a task, when the result could easily “look finished” and you don't fully know what you want.
+**When to use:** BEFORE a task, when the result could easily “look finished” and you don't fully know what you want; DURING, when edits aren't converging (4.3).
 
 **Keep in mind:**
 - The human now sits at the input (framing, context) and the output (review). Writing a good prompt is a critical-thinking skill too.
@@ -357,7 +357,7 @@ After answering, rewrite the framing yourself and run it through [4.2](#4-framin
 **Keep in mind:**
 - Even in unfamiliar territory, write down a guess first. A bad guess is fine: it's a point of comparison.
 - If you have no reference points at all, do a blind spot pass: give the model everything you know and let it find your unknown unknowns.
-- If something is beyond your understanding, learn it instead of pasting in a one-line explanation.
+- If something is beyond your understanding, learn it instead of settling for a one-line explanation.
 
 ### 5.1 Finding blind spots
 `[ANY CHAT]` · BEFORE
@@ -433,7 +433,7 @@ TASK / PROBLEM: [TASK]
 CONSTRAINTS (load, team, deadlines, existing system): [CONSTRAINTS]
 MY TENTATIVE CHOICE AND WHY: [MY HYPOTHESIS]
 
-1. Are we solving the right problem: restate it and name the problem it's easy to confuse it with.
+1. Are we solving the right problem? Restate it and name the problem it's easy to confuse it with.
 2. 3 substantially different options, including “do nothing / minimal”. For each: the gist, what we give up, who it affects, what will be expensive to change later.
 3. For my option: 3–5 conditions of the form “what would have to be true for it to be wrong” and how to check each one cheaply (a measurement, a prototype, a data query, a question to a person).
 4. Only now: your recommendation and the one check that would most strongly confirm or refute it.
@@ -464,7 +464,7 @@ We've made an architecture decision. Check whether I can defend it.
 DECISION: [DECISION]
 
 1. Ask me 5 questions a strong engineer would ask in a design review (why not alternative X, what happens when Y fails, how do we roll back). Wait for my answers.
-2. Grade my answers: where am I shaky.
+2. Grade my answers and tell me where I'm shaky.
 3. (Optional) A short decision record (ADR), 8–10 lines: context, decision, alternatives considered, what we give up, under what condition we revisit it.
 ```
 
@@ -533,7 +533,7 @@ For each finding, give the location, why it's a problem and how to check it. If 
 ```
 
 ### 7.3 Explain a slice of code to me
-`[ANY CHAT]`, better `[AGENT WITH TOOLS]` · DURING / AFTER
+`[ANY CHAT]`, ideally `[AGENT WITH TOOLS]` · DURING / AFTER
 
 ```text
 I need to rebuild my understanding of a specific piece of code, not the whole system.
@@ -581,9 +581,9 @@ HONESTY: report command output and check results only for things you actually ra
 **When to use:** you're reviewing a diff or PR, especially one generated by AI, before merging.
 
 **Keep in mind:**
-- Writing and reviewing are different skills, and review easily slides into rubber-stamping. You glance at the structure, the names look fine, the tests pass: approved. Meanwhile, somewhere in the middle, the order inside a transaction boundary subtly changed, or a default flipped on an edge case. That way you only review what you already expected to find.
+- Writing and reviewing are different skills, and review easily slides into rubber-stamping. You glance at the structure, the names look fine, the tests pass: approved. Meanwhile, somewhere in the middle, the order inside a transaction boundary subtly changed, or a default flipped on an edge case. Review like that and you only ever check what you expected to find.
 - **Read the diff yourself first, as if an AI hadn't written it.** Then look beyond the diff: what decisions the agent made (defaults, what's out of scope, which requirement it reinterpreted when two conflicted). Prompt 8.1 supplements your reading; it doesn't replace it.
-- Test yourself: pick lines at random and ask yourself “and this one?”. Merge after the quiz.
+- Test yourself: pick lines at random and ask yourself “what about this one?”. Merge after the quiz.
 - If you can't say what the automated checks will miss, you need a real review, not a quick approval.
 - Understand what you ship well enough to defend it.
 
@@ -610,7 +610,7 @@ HONESTY: report command output and check results only for things you actually ra
 
 Short:
 ```text
-Before I merge, ask me 3 questions about specific non-obvious places in this diff (file and line), plus the lines I name: [LINES]. No hints. The verdict “ready to merge” only if every answer is correct.
+Before I merge, ask me 3 questions about specific non-obvious places in this diff (file and line), plus the lines I name: [FILE:LINE]. No hints. Give the verdict “ready to merge” only if every answer is correct.
 ```
 
 ```text
@@ -628,7 +628,7 @@ HONESTY: report command output and check results only for things you actually ra
    - 1 about what the tests don't cover.
 2. Wait for my answers. No hints.
 3. Grade each answer: correct / partly / wrong, with an explanation.
-4. The verdict “ready to merge” only if every answer is correct. Otherwise tell me exactly what to reread.
+4. Give the verdict “ready to merge” only if every answer is correct. Otherwise tell me exactly what to reread.
 ```
 
 ### 8.3 Triaging incoming PRs
@@ -660,7 +660,7 @@ Sort by the attention needed, highest first.
 - You can surrender in verification too: “is there evidence?” quietly turns into “is the check green?”. A test can pass with the feature broken.
 - Define “verified” in advance. After the fact, any outcome is easy to explain as a success.
 - When you get “done”, look at the command that ran and its output first, then the summary.
-- **You look at the real output YOURSELF: in the tool log, the terminal or CI. Output the model retyped into the chat doesn't count as evidence.**
+- **Look at the real output YOURSELF, in the tool log, the terminal or CI. Output the model retyped into the chat doesn't count as evidence.**
 - Checking the machine's work is real work, not free. Put it in the plan as its own line.
 
 ### 9.1 What the green check proved
@@ -692,7 +692,7 @@ TASK: [TASK]
 
 1. 3–7 properties that must be true for the task to count as done. I want behavior, not “the code is written”.
 2. For each property, a concrete check: what to run or look at, and what result counts as success.
-3. Which checks can be automated and which need my eyes (a screenshot, a log, a manual scenario). How long my part will take: I'll put it in the plan.
+3. Which checks can be automated and which need my eyes (a screenshot, a log, a manual scenario). Estimate how long my part will take; I'll put it in the plan.
 4. What will be the tangible evidence that it's finished: a test, a screenshot, a log or a trace.
 5. Which outcome I could “explain” as a success after the fact even though it's a failure. Write it down so we don't accept it.
 ```
@@ -872,7 +872,7 @@ HONESTY: report command output and check results only for things you actually ra
 **When to use:** several agents or sessions running in parallel, chains of agents, subagents, pipelines.
 
 **Keep in mind:**
-- There can be many agents, but there's only one pair of eyes. Orchestration tax is the gap between what the agents generate and what you're prepared to put your name on.
+- There can be many agents, but you have only one pair of eyes. Orchestration tax is the gap between what the agents generate and what you're prepared to put your name on.
 - If finished work piles up faster than you can check it, another session won't help. There are two ways out, and both are fine: tighten the checks so the work needs you less, or slow down. If you produce more than you can verify, you're not reviewing, you're hoping.
 - Agents pass summaries to each other, and the third agent never read the original. Pass along sources, not summaries.
 - Agents can guard your attention: triage, flag contradictions, narrow the focus. The decision stays with you.
@@ -933,7 +933,7 @@ HONESTY: report command output and check results only for things you actually ra
 2. Contradictions between agents.
 3. Where an agent worked from a summary rather than the original.
 4. Decisions and assumptions the agents made on their own.
-5. My attention queue: what to check personally (highest risk first), and what can be accepted on the automated checks.
+5. My attention queue: what to check personally (highest risk first), and what can be accepted on the strength of the automated checks.
 6. If there's more than I can check: what to send back for rework with stricter checks, and what to postpone and run less often.
 ```
 
@@ -1062,9 +1062,9 @@ Once there are answers:
 
 ---
 
-## 17. Ambition altitude
+## 17. Aiming higher
 
-Blocks 0–16 teach you not to surrender to AI; blocks 17–20 teach you to ask it for more. They're two sides of the same skill: the more ambitious the task, the stricter the verification has to be (block 9).
+Blocks 0–16 teach you not to surrender to AI; blocks 17–19 teach you to ask it for more. They're two sides of the same skill: the more ambitious the task, the stricter the verification has to be (block 9).
 
 **When to use:** BEFORE. The task is phrased as an action (“make the slides”, “fix the bug”), but what you actually need is the outcome the action is for.
 
@@ -1083,7 +1083,7 @@ Don't do the task yet. Help me take it up a level.
 THE TASK AS I FRAMED IT: [TASK]
 WHY I NEED IT, AS I SEE IT: [MY HYPOTHESIS]
 
-1. A 3-rung ladder: (a) the task as it stands; (b) what decision or action should follow the result: frame the task so that you prepare that decision directly (options with arguments for and against); (c) why this work exists at all, and how to achieve that better than the usual way.
+1. A 3-rung ladder: (a) the task as it stands; (b) the decision or action that should follow from the result; frame the task so that you prepare that decision directly (options with arguments for and against); (c) why this work exists at all, and how to achieve that better than the usual way.
 2. For each rung: what data and access you need, what you're missing right now, and how I'll check the result with something other than your word.
 3. Where going higher DOESN'T make sense (a creative task, no data, no way to verify), say so plainly.
 4. Stop. I choose the rung.
@@ -1102,7 +1102,7 @@ HONESTY: report command output and check results only for things you actually ra
 1. The outcome metric: how you, without me, will know it's been achieved or broken. It must be a tool or data, not your judgment.
 2. What you need to close the loop on your own: access to the raw material (reports, logs, data), a link between “version ↔ commit/change”, an environment to reproduce and verify a fix. Mark what exists and what I need to set up.
 3. The working loop: where you observe → what you decide → what you do → how you verify → what you record.
-4. Where my decision is mandatory (shipping, irreversible actions, money, users; see [3.1](#3-delegate-or-not)): you only prepare those steps.
+4. Where my decision is mandatory (shipping, irreversible actions, money, users): you only prepare those steps.
 5. Limits: when you stop and call me (the same error repeating, budget exhausted, a check that won't pass).
 6. The first step I take today.
 ```
@@ -1111,7 +1111,7 @@ HONESTY: report command output and check results only for things you actually ra
 `[AGENT WITH TOOLS]` or `[ANY CHAT]` with data · BEFORE
 
 ```text
-There's a process we run out of habit. Propose a better way and prove it on our history, not with words.
+There's a process we run out of habit. Propose a better way and prove it against our historical data, not with arguments.
 
 THE PROCESS: [e.g. “the quarterly review deck”]
 WHAT IT EXISTS FOR: [e.g. “catch problems early and move money and people around”]
@@ -1119,21 +1119,21 @@ HISTORICAL DATA: [what we have / where it lives]
 HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”.
 
 1. Design a better way to achieve that goal.
-2. Test it on history: run the new way over past periods and show specific cases where it would have caught a problem earlier than the old way, and where it would have lost. Without data: “NOT RUN” and a plan for the test.
+2. Backtest it: run the new way over past periods and show specific cases where it would have caught a problem earlier than the old way, and where it would have lost. Without data: “NOT RUN” and a plan for the test.
 3. A plan for a parallel run: the old and new ways run side by side for one cycle. What we compare and the criterion for deciding which wins. We fix the criterion now, before the run.
 4. What could make the new way worse than the old one (what the old ritual quietly provided).
 ```
 
 ---
 
-## 18. Ambition depth
+## 18. Going deeper
 
-**When to use:** BEFORE. You don't need the result faster or bigger; you need it done genuinely well, at a level where a professional in the field would learn something new.
+**When to use:** BEFORE (18.1, 18.2) or DURING, once you're inside the data (18.3, 18.4). You don't need the result faster or bigger; you need it done genuinely well, at a level where a professional in the field would learn something new.
 
 **Keep in mind:**
 - “Act like a professional” changes the model's vocabulary, not its methods. Demand the tools the best people use: databases and statistical models instead of a table in the chat, measurements instead of estimates. The model usually knows which tools it needs, so ask.
 - Start from the rawest material, not a summary someone already digested.
-- An unreasonably high target (not 5 seconds instead of 10, but 200 ms) pushes further than “do your best”. But a high target tempts the model to declare success. So it only goes together with an external judge and the HONESTY line.
+- An unreasonably high target (not 5 seconds instead of 10, but 200 ms) pushes further than “do your best”. But a high target tempts the model to declare success. So use it only together with an external judge and the HONESTY line.
 - A deep result is easy to accept without understanding it. Before you rely on it, take the key part apart ([7.3](#7-writing-code-and-debugging), quiz [0.9](#0-one-liners)).
 - The external judge: don't ask the model to grade itself (for now; this may change as models improve). The best judge is a tool the model runs itself and gets an answer from immediately: a test, a benchmark, a data query, a check on unseen data.
 
@@ -1146,7 +1146,7 @@ Don't do the task. Rewrite my framing so that it demands deeper work, not more v
 MY FRAMING: [TASK or “see above”]
 
 1. What the best professional in this field would do here that I'm not asking for.
-2. What rawest material they would start from (instead of the already processed material I have).
+2. The rawest material they would start from (instead of the already processed material I have).
 3. What specific methods and tools they would use. Not job titles, methods.
 4. Who or what, other than you and me, would show that the result is correct: a tool, a test, data, an outside expert.
 5. A new framing as one copyable block that demands exactly that. Below it: what I'm missing to carry it out (access, data, time).
@@ -1155,17 +1155,19 @@ MY FRAMING: [TASK or “see above”]
 ### 18.2 An unreasonable target with an external judge
 `[AGENT WITH TOOLS]` · BEFORE → AFTER
 
+Define the judge with [9.2](#9-verification) first.
+
 ```text
-The target below seems unreasonable. It is achievable: keep looking for a way until you hit the limit. But only an external judge counts success, not you.
+The target below seems unreasonable. It is achievable: keep looking for a way until you hit the limit. But success is decided by an external judge, not by you.
 
 TASK: [TASK]
 STRETCH TARGET (well above “normal”): [e.g. “200 ms instead of 10 s”]
-ACCEPTANCE BAR (what's actually good enough): [e.g. “5 s”]
-THE JUDGE, WHAT WE MEASURE WITH: [benchmark / test / metric / “propose one”]
+ACCEPTANCE BAR (what's actually good enough, e.g. “5 s”): [ACCEPTANCE BAR]
+THE JUDGE (WHAT WE MEASURE WITH): [benchmark / test / metric / “propose one”]
 LIMIT: [time / number of attempts]
 HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”.
 
-1. Before the work: lock in the judge and a baseline measurement (as in [9.2](#9-verification)). If there's no judge, build one first and show it to me. Don't change the judge afterwards.
+1. Before the work: lock in the judge and a baseline measurement: what we measure, how, and what result counts as success. If there's no judge, build one first and show it to me. Don't change the judge afterwards.
 2. Not allowed: changing the measurement, weakening the test, fitting the data, narrowing the task without my agreement. If you want to do any of that, stop and ask.
 3. Work in iterations: hypothesis → change → measurement by the judge → conclusion. Keep a table of attempts.
 4. At the end: the baseline and final measurements (the judge's raw output), what produced gains, what didn't work, where you hit a ceiling and why. If the stretch target wasn't reached, use the format “not reached: best X, barrier Y”; that's a normal result. I decide acceptance against the bar, not the stretch target.
@@ -1177,7 +1179,7 @@ HONESTY: report command output and check results only for things you actually ra
 ```text
 We have a belief that decisions are built on. Test it adversarially against the raw data: your job is to find where it's wrong, not to confirm it.
 
-THE BELIEF: [e.g. “churn is an onboarding problem”]
+THE BELIEF (e.g. “churn is an onboarding problem”): [BELIEF]
 RAW DATA: [where it lives / attached]
 HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”.
 
@@ -1207,7 +1209,7 @@ HONESTY: report command output and check results only for things you actually ra
 
 ---
 
-## 19. Ambition range
+## 19. Going wider
 
 **When to use:** BEFORE. The task sits in one field, but a strong solution might come from another. Multi-agent tools make it cheap to bring in several fields.
 
@@ -1230,16 +1232,18 @@ TASK / ARTIFACT: [e.g. “the quarterly presentation”]
 ```
 
 ### 19.2 Assemble a team of methods
-`[ANY CHAT]`, better `[AGENT WITH TOOLS]` or a multi-agent environment · BEFORE
+`[ANY CHAT]`, ideally `[AGENT WITH TOOLS]` or a multi-agent environment · BEFORE
+
+Keep the lineup within your checking capacity: [13.1](#13-multi-agent-work-and-orchestration).
 
 ```text
-Imagine a great deal depends on the result. Which specialists would be brought together for this task? I need their METHODS, not their voices: no role-play and no stylization.
+Imagine a great deal depends on the result. Which specialists would be brought together for this task? I need their METHODS, not their voices: no role-play and no imitating their style.
 
 TASK: [TASK]
 WHAT AN “EXCELLENT RESULT” MEANS: [CRITERIA]
 HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”.
 
-1. The lineup: 4–6 specialists from different fields (no more than I can check; see [13.1](#13-multi-agent-work-and-orchestration)), including at least one adversarial one: someone who makes a living finding weaknesses (for example, a short seller, a forensic accountant, a penetration tester, a journal reviewer).
+1. The lineup: 4–6 specialists from different fields (no more than I can check), including at least one adversarial one: someone who makes a living finding weaknesses (for example, a short seller, a forensic accountant, a penetration tester, a journal reviewer).
 2. For each: the specific procedure they would run on the task, on what raw material, and what they would hand in at the end.
 3. Run these procedures one by one (or hand them out to subagents, each getting only its own procedure). The results are artifacts, not opinions: calculations, findings, checks.
 4. Where the procedures contradict each other, and what decision about that contradiction I need to make.
@@ -1247,18 +1251,18 @@ HONESTY: report command output and check results only for things you actually ra
 
 ---
 
-## 20. Red team adversarial agents
+## 20. Red teaming with adversarial agents
 
-**When to use:** DURING / AFTER, when the cost of a mistake is high or there's too much output to read all of it. How this differs from self-critique ([7.2](#7-writing-code-and-debugging)), a stress test ([6.2](#6-architecture-and-design)), a counterargument ([11.1](#11-high-stakes-decisions)) and a synthesis audit ([10.2](#10-research-and-document-synthesis)): those give an opinion or a cross-check. Here the agent has an inverted success criterion and is obliged to bring back a reproducible failure. For a business problem: adversarial specialists (20.2); for code: the code breaker (20.1); for the full cycle: the protocol with a judge (20.3).
+**When to use:** DURING / AFTER (20.3 is set up BEFORE), when the cost of a mistake is high or there's too much output to read all of it. How this differs from self-critique ([7.2](#7-writing-code-and-debugging)), a stress test ([6.2](#6-architecture-and-design)), a counterargument ([11.1](#11-high-stakes-decisions)) and a synthesis audit ([10.2](#10-research-and-document-synthesis)): those give an opinion or a cross-check. Here the agent has an inverted success criterion and must bring back a reproducible failure. For a business problem: adversarial specialists (20.2); for code: the breaker (20.1); for the full cycle: the protocol with a judge (20.3).
 
 **Keep in mind:**
 - Inverted incentive: the adversarial agent only wins by proving the work is bad. For it, “found no problems” is a loss, not politeness.
 - A finding that can't be reproduced doesn't count. Proof is a failing test, a counterexample from the data, a specific input that breaks it. A tool is the judge, not a model.
-- The breaker doesn't see the author's reasoning and doesn't fix anything. The author doesn't sign off on their own work. The final call is yours (a fresh checker in a separate context).
+- The breaker doesn't see the author's reasoning and doesn't fix anything. The author doesn't sign off on their own work. The final call is yours, ideally after a fresh checker in a separate context has looked.
 - Without an external judge, a red team turns into a generator of plausible complaints. Without a limit, it turns into an endless loop.
 
-### 20.1 The code breaker
-`[NEW CHAT / OTHER MODEL]` or a subagent, better `[AGENT WITH TOOLS]` · AFTER
+### 20.1 The breaker
+`[NEW CHAT / OTHER MODEL]` or a subagent, ideally `[AGENT WITH TOOLS]` · AFTER
 
 In Claude Code: “Run a separate subagent with none of our history using this prompt; return its failing tests to me as they are.”
 
@@ -1295,16 +1299,18 @@ HONESTY: report command output and check results only for things you actually ra
 5. The one claim that, if false, brings everything down. How to check it before deciding.
 ```
 
-### 20.3 The Blue and Red protocol with a judge
+### 20.3 The Blue/Red protocol with a judge
 `[AGENT WITH TOOLS]` with subagents, or several chats · BEFORE → AFTER
+
+Red's prompt: 20.1 for code, 20.2 for documents.
 
 Short:
 ```text
-Split the work between three participants: the builder (does the work), the breaker (separate, with none of the builder's history, wins only with a reproducible failure), and the judge (a tool: tests/benchmark/data, fixed in advance). Loop: builder → breaker → judge → fix, until the breaker finds nothing in [N] attempts or the limit runs out. The builder doesn't approve its own work. The final “yes” is mine.
+Split the work between three participants: the builder (does the work), the breaker (separate, with none of the builder's history, wins only with a reproducible failure), and the judge (a tool: tests/benchmark/data, fixed in advance). Loop: builder → breaker → judge → fix, until the breaker finds nothing in [N] attempts or the limit runs out. The builder doesn't approve its own work. Don't invent output: if you didn't run it, write “NOT RUN”. The final “yes” is mine.
 ```
 
 ```text
-Organize the work using the Blue / Red protocol with an external judge.
+Organize the work using the Blue/Red protocol with an external judge.
 
 TASK: [TASK]
 THE JUDGE (what objectively decides pass or fail): [tests / benchmark / check against data / “propose one and show it to me before we start”]
@@ -1312,7 +1318,7 @@ LIMITS: [maximum rounds, time]
 HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”.
 
 1. Blue (the builder) does the work and hands in the artifact + how to run it.
-2. Red (the breaker) is a separate agent or chat with NONE of Blue's history. It gets only the artifact, the requirement and the judge. It wins only with a reproducible failure (prompt 20.1 or 20.2).
+2. Red (the breaker) is a separate agent or chat with NONE of Blue's history. It gets only the artifact, the requirement and the judge. It wins only with a reproducible failure: a failing test, a counterexample, or an input it gets wrong.
 3. The judge runs on every Red finding: confirmed / doesn't reproduce. Anything unconfirmed doesn't get worked on.
 4. Blue fixes what was confirmed and adds the case to the judge as a new test or check so it doesn't come back. Blue doesn't change or delete the judge's existing checks, except with my agreement.
 5. Stop when: Red finds nothing in [N] attempts, OR the limit runs out, OR the same problem comes back twice with no new evidence; then call me.
@@ -1323,7 +1329,7 @@ HONESTY: report command output and check results only for things you actually ra
 
 ## 21. Fresh eyes
 
-Blocks 21–22 are for people who don't have status in their organization, and for anyone who has just joined a new team, project or codebase.
+Blocks 21–22 are for people without much standing in their organization, and for anyone who has just joined a new team, project or codebase.
 
 **When to use:** ONGOING during your first weeks somewhere new or on a new project, and DURING any conversation where you hear “that's impossible” or “we already tried”.
 
@@ -1331,7 +1337,7 @@ Blocks 21–22 are for people who don't have status in their organization, and f
 - A newcomer sees friction and opportunities that old-timers have stopped noticing. The advantage is temporary: in time you'll become an old-timer too and stop seeing it. Write down the oddities while they still seem odd.
 - “Impossible” often rests on several reasons at once: some true, some common knowledge nobody ever checked. Take them apart one by one and check the cheapest first: just ask whoever makes the call.
 - “I already tried” isn't a check. Conditions change, and the biggest change right now is that execution has become cheap.
-- How this differs from [18.3](#18-ambition-depth): there, a causal belief is tested against raw data; here, “impossible” rests on people and rules, and you test it by asking the owner. It doesn't conflict with [5.1](#5-a-new-unfamiliar-task); it sets the order: first write down what's odd before you get used to it, then learn.
+- How this differs from [18.3](#18-going-deeper): there, a causal belief is tested against raw data; here, “impossible” rests on people and rules, and you test it by asking the owner. It doesn't conflict with [5.1](#5-a-new-unfamiliar-task); it sets the order: first write down what's odd before you get used to it, then learn.
 - The oddities have to come from you, not the model: the AI helps you sort them and check them, but not invent them. Otherwise it's someone else's conclusion again instead of yours.
 
 ### 21.1 A fresh-eyes log
@@ -1344,7 +1350,7 @@ WHERE I AM: [company / team / project / product]
 MY NOTES (what seemed odd, awkward, slow, confusing): [MY NOTES]
 
 1. Group the notes: friction for users / friction for the team / “that's how we do it” with no visible reason / an opportunity.
-2. For each: the most plausible reason it's done this way, and the reason if it's simply that nobody has revisited it.
+2. For each: the most plausible reason it's done this way, or whether it's simply that nobody has revisited it.
 3. How to check cheaply: who to ask, what data to look at, what to try. Phrase the question so I can ask it as a newcomer, without sounding accusatory.
 4. The three notes with the biggest potential impact on the team's goals, and why.
 5. What you DON'T know about the context that could make your assessment wrong.
@@ -1354,7 +1360,7 @@ MY NOTES (what seemed odd, awkward, slow, confusing): [MY NOTES]
 `[ANY CHAT]` · DURING
 
 ```text
-On the team, the idea below is considered impossible or already failed. Work out what that belief rests on. Don't take the idea's side in advance and don't defend the status quo: take it apart and find what to check.
+On the team, the idea below is considered impossible, or is said to have failed already. Work out what that belief rests on. Don't take the idea's side in advance and don't defend the status quo: take it apart and find what to check.
 
 IDEA: [IDEA]
 WHY IT'S CONSIDERED IMPOSSIBLE / WHAT HAPPENED LAST TIME: [WHAT I HEARD]
@@ -1362,7 +1368,7 @@ MY HYPOTHESIS (which reason I think doesn't hold up): [MY HYPOTHESIS]
 HONESTY: report command output and check results only for things you actually ran here, verbatim; otherwise write “NOT RUN: command for me …, expected output …”. Quote only text you actually have; anything you haven't opened is “no access”.
 
 1. Break “impossible” into separate reasons: technical, organizational (someone's presumed “no”), resources, historical (“we tried”).
-2. Label each reason: FACT (verified, there's a source) / ASSUMPTION ABOUT PEOPLE OR RULES / “SO THEY SAY”. For each, the owner (who can confirm or remove it directly) and one question for them or a minimal experiment.
+2. Label each reason: FACT (verified, there's a source) / ASSUMPTION ABOUT PEOPLE OR RULES / HEARSAY. For each, the owner (who can confirm or remove it directly) and one question for them or a minimal experiment.
 3. For “we already tried”: what has changed since then (cost of execution, tools, people, requirements)? What actually broke back then: the idea, or the way it was pushed?
 4. The cheapest check of the weakest reason. If it's a question for a person, phrase it.
 5. Which reasons are probably true, and how to work around them rather than argue with them.
@@ -1372,17 +1378,17 @@ HONESTY: report command output and check results only for things you actually ra
 
 ## 22. Prototype instead of permission
 
-**When to use:** BEFORE, when you have an idea but not the status to get the organization to bet on it, or when showing a working thing is faster than a long approval process.
+**When to use:** BEFORE building (22.1) and AFTER the prototype is ready (22.2): you have an idea but not the standing to get the organization to bet on it, or showing a working thing is faster than a long approval process.
 
 **Keep in mind:**
 - Execution isn't expensive anymore. A working prototype skips the cycle of “requirements doc → approvals → fighting for designer and manager time”.
-- Don't start from the backlog; start from what the organization is actually trying to achieve. A good proxy for the right altitude is your manager's manager's goals. This is “altitude” in a different sense than in [17.1](#17-ambition-altitude): there it's the level of what you ask the model for, here it's the level of the organization's goals. Take the task ladder from 17.1.
+- Don't start from the backlog; start from what the organization is actually trying to achieve. A good proxy for the right altitude is your manager's manager's goals. This is “altitude” in a different sense than in [17.1](#17-aiming-higher): there it's the level of what you ask the model for, here it's the level of the organization's goals. Use the task ladder from 17.1.
 - One idea per prototype. The classic mistake is hiding three great ideas among twenty bad ones. The point of the prototype is to get the idea across so that both the opportunity and the fact that you can lead it are obvious.
 - A prototype is an argument, not a product. You still have to be able to explain what in it is real and what is a stub, and defend the idea under your own name ([11.3](#11-high-stakes-decisions)). Otherwise a fast prototype turns into comprehension debt with a demo.
 - You're skipping approval for the idea, not the checks. Stakes still follow [3.1](#3-delegate-or-not); a winning prototype only goes to production the normal way: [9.2](#9-verification) → [7.1](#7-writing-code-and-debugging) → [15.1](#15-finishing-any-task).
 
 ### 22.1 One idea, one prototype
-`[ANY CHAT]`, better `[AGENT WITH TOOLS]` · BEFORE
+`[ANY CHAT]`, ideally `[AGENT WITH TOOLS]` · BEFORE
 
 ```text
 Help me cut a prototype down to one idea that can be built over a weekend. Don't start building yet. Don't come up with ideas for me.
@@ -1396,7 +1402,7 @@ WHO NEEDS TO GET THE IDEA FROM THE PROTOTYPE: [WHO MAKES THE DECISION]
 1. State the core of the idea in one sentence: what a busy person should see and understand in the first two minutes.
 2. Split my list into: “the idea doesn't make sense without this” / “a separate idea, set it aside” / “infrastructure that can be faked with a stub”.
 3. If the list contains more than one idea, name them separately and ask which one I choose. Stop until I answer.
-4. The minimal makeup of the prototype: what's real, what's a stub. Stubs will be honestly labeled in the demo.
+4. The minimal scope of the prototype: what's real, what's a stub. Stubs will be honestly labeled in the demo.
 5. Boundaries: the prototype doesn't go to production and doesn't touch real users or production data. What's needed to guarantee that.
 6. The prototype's success criterion: what decision or question from leadership it should trigger.
 ```
@@ -1430,7 +1436,7 @@ WHO I'M SHOWING IT TO: [WHO DECIDES]
 6. What would have to be true for this to be wrong, and did I check that with a test rather than the model's confidence?
 7. Did I hear a counterargument from another angle (a different model, a different chat)?
 8. Do I know which decisions and assumptions the AI made for me?
-9. Did I write down one thing the AI didn't check, myself?
+9. Did I write down, myself, one thing the AI didn't check?
 10. Would I put my name on this in front of the person who'll maintain it, or was I just persuaded by the polished format?
 11. Did I ask for the most ambitious version (higher, deeper, wider) that I can check with an external judge rather than the model's word?
 
@@ -1441,7 +1447,7 @@ WHO I'M SHOWING IT TO: [WHO DECIDES]
 **Numbering rules:**
 - A block or prompt number, once assigned, is never reused or renumbered: the situation table and other prompts link to it.
 - Don't erase a removed prompt. Keep its heading with the note `(removed YYYY-MM-DD: reason, replaced by → X.Y)` and delete the body.
-- A new prompt goes at the end of its block, with the next free number. A new block goes after the last block (17, 18, …), before the checklist. Add it to the contents and, if needed, to the “Situation and prompt” table.
+- A new prompt goes at the end of its block, with the next free number. A new block goes after the last block (23, 24, …), before the checklist. Add it to the contents, to an island in `ISLES` in `src/template.html` (or the build stops) and, if needed, to the “Situation and prompt” table.
 - Write block headings without quotes, colons or dashes so the anchor links don't break.
 - Record every change in the “Changelog”.
 
@@ -1453,12 +1459,12 @@ WHO I'M SHOWING IT TO: [WHO DECIDES]
 **When to use:** [the situation in one line]
 
 **Keep in mind:**
-- [2–4 points]
+- [2–6 points]
 
 ### N.M Prompt name
 `[ANY CHAT | SAME CHAT | NEW CHAT / OTHER MODEL | AGENT WITH TOOLS]` · BEFORE | DURING | AFTER | ONGOING
 
-Short: (for long prompts, a 2–3 line version in a separate text block)
+Short: (for long prompts, a 2–3 line version in a separate text block, or a link to the prompt that serves as one)
 
 ```text
 [What to do and what NOT to do.]
@@ -1487,20 +1493,16 @@ HONESTY: ...                     ← word for word, if the prompt is about check
 | Erosion of the shared theory of the system | The team loses its shared understanding of the system. It surfaces when things change. |
 | Rebuilding understanding on demand | Instead of holding a model of the whole codebase, ask for an explanation of the slice you need. |
 | Blind spot pass | You give the model everything you know and it looks for your unknown unknowns. |
-| “Give Claude a way to verify its work” | Give the agent a way to check its work: tests, e2e, an actual run. |
+| Verification loop | Give the agent a way to check its own work: tests, e2e, an actual run. |
 | The real-review rule | If you can't say what the checks will miss, ask for a real review, not a quick approval. |
 | Intent debt | Unstated goals, constraints and motives that aren't in the task framing. |
-| Delegation vs. collaboration | Collaboration is mutual amplification, not just handing work over. |
 | Orchestration tax | The gap between what the agents generate and what you're prepared to put your name on. |
 | Paradox of supervision | Supervising AI takes the very coding skills that waste away from leaning on AI too much. |
 | Speed / Altitude / Depth / Range | Four kinds of ambition: the same thing faster; higher in abstraction (the outcome instead of the task); deeper (the methods of the best professionals); wider (methods from other fields). |
 | External judge | Don't ask the model to grade itself; the best judge is a tool it runs and gets an answer from immediately. |
 | Nouns into verbs | Describe the task as an action to see which fields could help. |
 | Red team | The adversarial part of a team whose job is to find weaknesses (for example, a short seller or a forensic accountant). An adversarial agent has an inverted success criterion: it has to bring back a reproducible failure. |
-| Self-efficacy | Belief in your own abilities; specific hard goals work better than “do your best”. |
-| Hunger beats tenure | Impact depends less on seniority and accumulated framework knowledge, and more on drive and fresh eyes. |
 | Newcomer's fresh eyes | Newcomers notice friction and opportunities that old-timers no longer see; organizations need an influx of “naive” people. |
-| Business value, not programming | Engineers are hired to create business value; stay close to what makes money. |
 | The old-timer trap | Your own “I already tried” turns into an untested belief; a newcomer with the same idea simply asks. |
 
 ---
@@ -1509,4 +1511,4 @@ HONESTY: ...                     ← word for word, if the prompt is about check
 
 | Date | Version | What changed | Why |
 |------|---------|--------------|-----|
-| 2026-11-11 | 1.0 | First English edition: 23 blocks, 69 prompts, the situation table, the 30-second checklist, the glossary | Public release |
+| 2026-11-11 | 1.0 | First public release: 23 blocks, 69 prompts, the situation table, the 30-second checklist, the glossary | |

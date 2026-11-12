@@ -1,5 +1,4 @@
 <title>AI Prompt Map</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
@@ -245,7 +244,7 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.
 
 /* ---------- islands: groups of blocks along the work lifecycle ---------- */
 const ISLES=[
- {k:'start',name:'Start',blocks:[0,1,2],why:'Not sure what to pick: a one-liner, standing rules, or the universal prompt.'},
+ {k:'start',name:'Start',blocks:[0,1,2],why:'Not sure what to pick: a one-liner, standing instructions, or the universal multi-prompt.'},
  {k:'frame',name:'Framing',blocks:[3,4,5],why:'BEFORE the task: whether to hand it off, how to frame it, what to do in unfamiliar territory.'},
  {k:'make',name:'Making',blocks:[6,7,12],why:'Decisions, code and writing while the AI does the work.'},
  {k:'check',name:'Checking',blocks:[8,9,10,11,20],why:'The AI says “done”: review, evidence, synthesis, stakes, adversarial checks.'},
@@ -385,7 +384,7 @@ function card(p,ctx={}){
   ${(nx||see||rt)?`<div class="c-f">${nx?`<span class="grp2"><span class="k">Next step</span>${nx}</span>`:''}${see?`<span class="grp2"><span class="k">See also</span>${see}</span>`:''}${rt?`<span class="grp2"><span class="k">Also useful when</span>${rt}</span>`:''}</div>`:'<div style="height:12px"></div>'}
 </article>`;
 }
-const shortT=t=>t.replace(/`[^`]*`/g,'').replace(/[\s.,]*(BEFORE|DURING|AFTER|ONGOING)\s*$/,'').replace(/[.,]\s*(Better|Only)\b.*$/i,'').replace(/[.,]\s*$/,'').trim();
+const shortT=t=>t.replace(/`[^`]*`/g,'').replace(/[\s.,]*(BEFORE|DURING|AFTER|ONGOING)\s*$/,'').replace(/[.,]\s*(Ideally|Better|Only)\b.*$/i,'').replace(/[.,]\s*$/,'').trim();
 
 /* ---------- filters ---------- */
 let F={ph:null,env:null};
@@ -400,7 +399,7 @@ function filtersHTML(){
 
 /* ---------- rail ---------- */
 function rail(active,cur){
-  let h=`<h4>Map</h4><a class="nav-a${active==='home'?' on':''}" href="#home">All islands</a><a class="nav-a${active==='ref'?' on':''}" href="#ref">Reference: spectrum, checklist, glossary</a>`;
+  let h=`<h4>Map</h4><a class="nav-a${active==='home'?' on':''}" href="#home">All islands</a><a class="nav-a${active==='ref'?' on':''}" href="#ref">Reference: spectrum, checklist, glossary</a><a class="nav-a" href="https://github.com/henryfonda12/AI-Prompt-Map" target="_blank" rel="noopener">GitHub: source, AI coach, feedback ↗</a>`;
   h+=`<h4>Situation → route</h4>`;
   ISLES.forEach(is=>{const rs=ROUTES.filter(r=>routeIsle(r)===is);if(!rs.length)return;
     h+=`<div class="grp"><span class="isle-dot" style="background:${ISLE_COL[is.k]}"></span>${is.name}</div>`;
@@ -439,7 +438,7 @@ function blockView(n,focus){
   </section>
   ${(F.ph||F.env)?filtersHTML():''}
   ${ps.map(p=>card(p)).join('')||'<div class="empty">No prompts in this block match the filter.</div>'}
-  ${hidden?`<div class="empty">Hidden by the filter: ${hidden}. <a href="#" data-clear>Clear filter</a></div>`:''}
+  ${hidden?`<div class="empty">${hidden} hidden by the filter. <a href="#" data-clear>Clear filter</a></div>`:''}
   <nav class="pager">${prev?`<a href="#b${prev.n}"><small>← ${prev.n}</small>${esc(prev.title)}</a>`:'<span></span>'}${next?`<a class="r" href="#b${next.n}"><small>${next.n} →</small>${esc(next.title)}</a>`:''}</nav>`;
 }
 function routeView(i){
@@ -522,7 +521,7 @@ async function copy(text,btn,msg){
   let ok=false;try{await navigator.clipboard.writeText(text);ok=true}catch(e){
     const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{ok=document.execCommand('copy')}catch(e2){}ta.remove()}
   if(btn){btn.classList.add('ok');setTimeout(()=>btn.classList.remove('ok'),1200)}
-  toast(ok?msg:'Couldn\'t copy: select the text manually');
+  toast(ok?msg:'Couldn\'t copy. Select the text manually.');
 }
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),m.length>40?3200:1600)}
 
@@ -532,7 +531,7 @@ document.addEventListener('click',e=>{
     if(kind==='raw'||kind==='rawmd'){const raw=c.dataset.raw;copy(kind==='raw'?raw:'````text\n'+raw+'\n````',sq,'Template copied');return}
     const id=c.dataset.id;const ver=c.querySelector('.ver .on')?.dataset.ver||'full';
     const txt=kind==='text'?cardText(id,ver):cardMd(id,ver);const mine=[...new Set([...txt.matchAll(/\[([^\]\n]+)\]/g)].map(m=>m[1]).filter(x=>ME.has(x)))];
-    copy(txt,sq,(kind==='text'?'Prompt ':'Card ')+id+(ver==='short'?' (short)':'')+' copied'+(mine.length?'. Fill in yourself: ['+mine.join('], [')+']':''));return}
+    copy(txt,sq,'Prompt '+id+(ver==='short'?' (short)':'')+' copied'+(kind==='text'?'':' with title and labels')+(mine.length?'. Fill in before sending: ['+mine.join('], [')+']':''));return}
   const vb=e.target.closest('[data-ver]');
   if(vb){const c=vb.closest('.card');c.querySelectorAll('.ver button').forEach(b=>{b.classList.toggle('on',b===vb);b.setAttribute('aria-selected',b===vb)});
     const p=P[c.dataset.id];const t=vb.dataset.ver==='short'?p.short:p.full;const pre=c.querySelector('.pre');pre.querySelector('pre').innerHTML=promptHTML(t);
